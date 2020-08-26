@@ -136,20 +136,6 @@ export default {
     },
   },
 };
-
-/* size 当天显示条数   page 页码
-
-总数 18条数据  每页显示10 
-页码2
-
-第一次调取接口  size：10 
-              page:1
-后端返回前10条
-
-点击第二页 
-  size：10
-  page：2
-后端再返回十条，如果不够 都返回了 返回8条 */
 </script>
 
 <style  lang="" scoped>
