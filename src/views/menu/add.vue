@@ -32,10 +32,18 @@
           label="菜单图标："
           :label-width="formLabelWidth"
         >
-          <el-input v-model="menuForm.icon"></el-input>
+          <el-select v-model="menuForm.icon">
+            <option value label="请选择" disabled></option>
+            <!-- 动态数据 -->
+            <el-option v-for="item in icons" :key="item.id" :label="item" :value="item"></el-option>
+          </el-select>
         </el-form-item>
         <el-form-item v-if="menuForm.type==2" label="菜单地址：" :label-width="formLabelWidth">
-          <el-input v-model="menuForm.url"></el-input>
+          <el-select v-model="menuForm.url">
+            <option value label="请选择" disabled></option>
+            <!-- 动态数据 -->
+            <el-option v-for="item in routerUrl" :key="item" :label="item" :value="item"></el-option>
+          </el-select>
         </el-form-item>
         <el-form-item label="状态：" :label-width="formLabelWidth">
           <el-switch
@@ -56,15 +64,27 @@
 </template>
 
 <script>
-import { mapActions,mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import { getMenuAdd, getMenuInfo, getMenuEdit } from "../../util/axios";
 export default {
   props: ["isShow"],
   computed: {
-      ...mapGetters(['get_MenuList'])
+    ...mapGetters(["get_MenuList"]),
   },
   data() {
     return {
+      icons: ["el-icon-setting", "el-icon-s-goods", "el-icon-menu"], // 图标
+      routerUrl: [
+        "/banner",
+        "/goods",
+        "/member",
+        "/menu",
+        "/role",
+        "/seck",
+        "/sort",
+        "/specs",
+        "/user",
+      ], // 路由地址
       editId: 0,
       formLabelWidth: "120px", //lable宽度
       menuForm: {

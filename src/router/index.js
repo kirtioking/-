@@ -29,10 +29,52 @@ export default new Router({
           }
         },
         {
+          path:'/sort',
+          component:()=>import('../views/sort/index'),
+          meta:{
+            name:'商品分类列表'
+          }
+        },
+        {
           path:'/user',
           component:()=>import('../views/user/index'),
           meta:{
             name:'管理员列表'
+          }
+        },
+        {
+          path:'/specs',
+          component:()=>import('../views/specs/index'),
+          meta:{
+            name:'商品规格'
+          }
+        },
+        {
+          path:'/goods',
+          component:()=>import('../views/goods/index'),
+          meta:{
+            name:'商品管理'
+          }
+        },
+        {
+          path:'/member',
+          component:()=>import('../views/member/index'),
+          meta:{
+            name:'会员管理'
+          }
+        },
+        {
+          path:'/banner',
+          component:()=>import('../views/banner/index'),
+          meta:{
+            name:'轮播图管理'
+          }
+        },
+        {
+          path:'/seck',
+          component:()=>import('../views/seck/index'),
+          meta:{
+            name:'限时秒杀'
           }
         },
       ]
